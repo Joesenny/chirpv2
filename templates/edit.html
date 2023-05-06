@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form action="/edit/{{post.id}}/" method="POST">
+        <div class="mb-3">
+          <h3>Edit Your Story</h3>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            value="{{post.title}}"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea name="content" cols="50" rows="10" class="form-control">{{post.content}}</textarea>
+        </div>
+        <div class="mb-3">
+          <input type="submit" value="Save Changes" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

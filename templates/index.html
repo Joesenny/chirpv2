@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      {% for post in posts %}
+      <div class="post-preview">
+        <a href="/post/{{post.id}}/">
+          <h2 class="post-title">
+            {{post.title}}
+          </h2>
+        </a>
+        <p class="post-meta">Posted by
+          <a href="#">{{post.author}}</a> on {{post.created_on.strftime('%d/%b/%Y')}}
+        </p>
+        <p>{{ post.content[0:300] }} ...</p>
+        <hr>
+      </div>
+      {% else %}
+      <h3>No posts yet</h3>
+      {% endfor %}
+      <pre>{{ pprint(posts) }}</pre>
+    </div>
+  </div>
+</div>
+{% endblock %}

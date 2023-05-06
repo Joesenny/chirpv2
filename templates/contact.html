@@ -1,0 +1,58 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form action="{{url_for('contact')}}" method="POST">
+        <div class="mb-3">
+          <h3>Contact me with a message right here</h3>
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            name="name"
+            class="form-control"
+            placeholder="Your Name Here"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            placeholder="Your Email Address"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            placeholder="What's Your Message About?"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message</label>
+          <textarea
+            name="message"
+            cols="30"
+            rows="10"
+            class="form-control"
+            placeholder="Write something.."
+            required
+          ></textarea>
+        </div>
+        <div class="mb-3">
+          <input type="submit" value="Submit" class="btn btn-primary" />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

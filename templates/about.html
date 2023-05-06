@@ -1,0 +1,18 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="mb-4">About Chirp</h1>
+      <p>
+        Chirp is a microblogging platform that allows users to share short messages with their friends and followers. Users can
+        follow each other and be followed back. Chirp is a Flask application built with Python and SQLite.
+      </p>
+      <p>
+        Authentication is required to contribute on this blog <a href="{{url_for('login')}}">log in</a> to share, edit or delete your
+        stories.
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock content %}
