@@ -1,19 +1,21 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <form action="{{url_for('contact')}}" method="POST">
         <div class="mb-3">
-          <h3>Contact me with a message right here</h3>
+          <h3>Email joe_senny, Chirp Master</h3>
         </div>
+      
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
           <input
             type="text"
             name="name"
             class="form-control"
-            placeholder="Your Name Here"
+            placeholder="and you are?"
             required
           />
         </div>
@@ -23,7 +25,7 @@
             type="email"
             name="email"
             class="form-control"
-            placeholder="Your Email Address"
+            placeholder="your email, for corrospondence"
             required
           />
         </div>
@@ -33,7 +35,7 @@
             type="text"
             name="title"
             class="form-control"
-            placeholder="What's Your Message About?"
+            placeholder="Succintly describe your message"
             required
           />
         </div>
@@ -44,7 +46,7 @@
             cols="30"
             rows="10"
             class="form-control"
-            placeholder="Write something.."
+            placeholder="Write something.. wordy is good, but not too wordy."
             required
           ></textarea>
         </div>
@@ -56,3 +58,6 @@
   </div>
 </div>
 {% endblock content %}
+
+
+

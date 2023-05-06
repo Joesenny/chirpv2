@@ -14,12 +14,12 @@ app = Flask(__name__)
 from flask_mail import Mail, Message as EmailMessage
 
 
-app.config['MAIL_SERVER'] = 'smtp.mail.yahoo.com'
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config['MAIL_USERNAME'] = 'joesennyblog@yahoo.com'
-app.config['MAIL_PASSWORD'] = 'joesennyblog2023'
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'joe.w.senny@gmail.com'
+app.config['MAIL_PASSWORD'] = 'herjibqoipqxsigq'
+app.config['MAIL_DEFAULT_SENDER'] = '<your-email-address>'
 
 
 mail = Mail(app)
@@ -115,18 +115,21 @@ def contact():
         # Send email
         msg = EmailMessage(
             subject=f"New Message from {sender}: {title}",
-            recipients=["joesennyblog@yahoo.com"],
+            recipients=["joe.w.senny@gmail.com"],
             body=f"Name: {sender}\nEmail: {email}\nTitle: {title}\n\n{message_content}",
             reply_to=email
         )
 
-        mail.send(msg)
+        try:
+            mail.send(msg)
+        except:
+            flash("An error occurred while sending the message. Please try again later.", "error")
+            return redirect(url_for('contact'))
 
         flash("Message sent. Thanks for reaching out!")
         return redirect(url_for('index'))
 
     return render_template('contact.html')
-
 
 @app.route('/signup', methods=['GET', 'POST'])
 def register():
